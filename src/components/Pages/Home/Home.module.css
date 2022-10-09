@@ -1,0 +1,11 @@
+.menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-right: 70px;
+    justify-content: space-between;
+}
+
+.homeTitle {
+    font-size: 30px;
+}

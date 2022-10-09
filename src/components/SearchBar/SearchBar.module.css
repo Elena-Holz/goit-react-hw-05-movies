@@ -1,0 +1,40 @@
+
+.searchForm{
+    max-width: 500px;
+    margin: 25px auto;
+    display: flex;
+    align-content: flex-end
+}
+
+.formGroup {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 70px 1fr;
+    align-items: flex-start;    
+    gap: 20px;
+}
+
+.field {
+    padding: 15px 20px;
+    display: inline-block;
+    width: 100%;
+}
+
+.searchbtn {
+    
+    display: inline-block;
+     background-color: rgb(219, 244, 246);
+    cursor: pointer;
+    padding: 15px 20px;
+    border: 1px solid;
+    border-radius: 5px;
+     color: rgb(20, 19, 19);
+            
+}
+
+.formGroup {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+   
+    gap: 20px;
+}

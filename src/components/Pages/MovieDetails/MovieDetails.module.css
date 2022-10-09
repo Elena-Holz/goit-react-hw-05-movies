@@ -1,0 +1,16 @@
+.backBtn {
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+}
+
+.detaliesBtn {
+   
+    width: 120px;
+     height: 40px;
+    font-size: 20px;
+}
+
+.boxBtn {
+    display: block;
+}
