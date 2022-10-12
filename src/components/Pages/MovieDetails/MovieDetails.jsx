@@ -19,7 +19,7 @@ export default function MovieDetails() {
             setError(null)
             const movieInfo = await getMoviesDetails(movieId);
             setState(movieInfo);
-            console.log(state);
+            // console.log(state);
             const arr = movieInfo.genres;
             const genres = [];
             for (const genre of arr) {
@@ -43,7 +43,7 @@ export default function MovieDetails() {
           {state &&
                 <div >
                     <div className={css.detaliesContener}>
-                        <div className={css.detalies}>
+                        <div className={css.detaliesImg}>
                         <img src={`https://image.tmdb.org/t/p/w500${state.poster_path}`} className={css.detaliesImg} alt='' />
                         </div>
                         <div className={css.detalies}>
