@@ -8,7 +8,7 @@ export const getTrendingMovies = async (page = 1) => {
 
 
 export const getMovies = async (page = 1, search) => {
-    const {data} = await  axios.get(`https://api.themoviedb.org/3/search/movie?api_key=d7ec2f16e9f47b0d4f9bd29e024a97c3&query=${search}&page=${page}&language=en-US&include_adult=false`)
+    const {data} = await  axios.get(`https://api.themoviedb.org/3/search/movie?api_key=d7ec2f16e9f47b0d4f9bd29e024a97c3&query=${search}&page=${page}&include_adult=false`)
     console.log(data);
      console.log(data.results);
     return data;
@@ -20,7 +20,8 @@ export async function getMoviesDetails(movieid) {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/movie/${movieid}?api_key=d7ec2f16e9f47b0d4f9bd29e024a97c3&language=en-US&append_to_response=videos`
       );
-       console.log(data.overview);
+      const arr = data.genres;
+      console.log(arr);
     return data;
   } catch (error) {
     console.log(error);
@@ -32,7 +33,8 @@ export async function getMoviesCast(movieid) {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/movie/${movieid}/credits?api_key=d7ec2f16e9f47b0d4f9bd29e024a97c3&language=en-US&append_to_response=videos`
       );
-       console.log(data.cast);
+      const cast = data.cast;
+       console.log(cast);
     return data;
   } catch (error) {
     console.log(error);
@@ -53,7 +55,10 @@ export async function getMoviesReviews(movieid) {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/movie/${movieid}/reviews?api_key=d7ec2f16e9f47b0d4f9bd29e024a97c3&language=en-US&append_to_response=videos`
       );
-       console.log(data.results.content);
+    
+      const resul = data.results;
+      console.log(resul);
+
     return data;
   } catch (error) {
     console.log(error);

@@ -3,7 +3,8 @@ import Searchbar from 'components/SearchBar/SearchBar'
 import GalleryMovies from 'components/Gallery/GalleryMovies/GalleryMovies';
 import { useState, useEffect } from 'react';
 import { getMovies } from 'components/services/api';
-import {useSearchParams} from "react-router-dom";
+import { useSearchParams} from "react-router-dom";
+// import { useMemo } from 'react';
 
 export default function Movies() {
     const [movies, setMovies] = useState([]);
@@ -14,18 +15,19 @@ export default function Movies() {
 
  const [searchParams, setSearchParams] = useSearchParams();
     const searchQuery = searchParams.get("searchQuery");
+    // const { searchQuery } = useParams();
     console.log(searchQuery);
+      console.log(movies);
 
 useEffect(() => {
     const fetchMovies = async () => {
       
         try {
-            const data = await getMovies(searchQuery);
-            const newMovies = data.results;
-            console.loge(data);
-
-            setMovies((movies) => [...movies, ...newMovies]);
-            console.loge(newMovies);
+            const data = await getMovies(searchQuery, page);
+            // const newMovies = data.results;
+            // console.loge(data);
+            setMovies(prevmovies => [...prevmovies, ...data.results]);
+            console.loge(movies);
         
         } catch (error) {
             setError(error);
@@ -36,13 +38,13 @@ useEffect(() => {
         fetchMovies();
     }
     
-}, [searchQuery]);
+}, [searchQuery, page]);
       
     
 const onSearch = (search) => {
     setSearchParams({searchQuery: search});
     console.log('searchName', search);
-    setMovies([]);
+    // setMovies([]);
     setPage(1);
   }
 

@@ -11,6 +11,7 @@ import { getMoviesCast} from 'components/services/api';
 
 export default function Cast() {
     const [error, setError] = useState(null);
+     const [state, setState] = useState(null);
     const { movieId } = useParams();
     console.log(movieId);
 
@@ -20,8 +21,9 @@ export default function Cast() {
         try {
             
         setError(null)
-        const cast = await getMoviesCast(movieId);
-        console.loge(cast);
+            const acthors = await getMoviesCast(movieId);
+            setState(acthors);
+        console.loge(state);
                   
         } catch (error) {
             setError(error);
@@ -34,8 +36,19 @@ export default function Cast() {
  
     return (
       <>
-         <h2 >Actors</h2>
-            {error && <p> Sorry</p>}
+            <h2 >Actors</h2>
+            {/* {state.cast.map(({ name, profile_path }) => (
+       
+            <ul>
+                <li key={movieId}>
+                    <p>{name}</p>
+                    <div>
+                        <img src={`https://image.tmdb.org/t/p/w200${profile_path}`}  alt='' />
+                    </div>  
+                </li>
+                </ul>
+            ))} */}
+            {error && <p> Sorry</p>} 
     
       </>
     

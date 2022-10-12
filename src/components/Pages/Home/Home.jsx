@@ -26,15 +26,6 @@ useEffect(() => {
     
 }, [page]);
       
-    
-// const onSearch = (searchName) => {
-//     setSearchName(searchName);
-//     console.log('searchName', searchName);
-//     // setMovies([]);
-//     // setPage(1);
-//   }
-
-  
   return (
       <>
           <h2 className={css.homeTitle}>Trending movies</h2>

@@ -14,3 +14,36 @@
 .boxBtn {
     display: block;
 }
+
+.detaliesContener {
+    display: flex;
+}
+
+.detaliesImg {
+   
+    height: 600px;
+}
+
+.detalies {
+    display: block;
+    margin-right: 25px;
+}
+
+.overview {
+    font-size: 25px;
+}
+
+.detaliesTitle {
+    font-size: 50px;
+}
+
+.title {
+    font-size: 35px;
+}
+
+.content {
+    font-size: 15px;
+}
+.author {
+    font-size: 25px;
+}
