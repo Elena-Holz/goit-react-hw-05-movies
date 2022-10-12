@@ -34,7 +34,7 @@ export default function MovieDetails() {
         fetchMoviesID();
     }, [movieId]);
 
-    const goBack = () => navigate("/");
+    const goBack = () => navigate(-1);
  
     return (
       <>

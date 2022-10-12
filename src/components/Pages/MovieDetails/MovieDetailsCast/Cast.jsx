@@ -37,17 +37,19 @@ export default function Cast() {
     return (
       <>
             <h2 >Actors</h2>
-            {/* {state.cast.map(({ name, profile_path }) => (
+            {/* <ul>
+            {state.cast.map(({ name, profile_path, id }) => (
        
-            <ul>
-                <li key={movieId}>
+            
+                <li key={id}>
                     <p>{name}</p>
                     <div>
                         <img src={`https://image.tmdb.org/t/p/w200${profile_path}`}  alt='' />
                     </div>  
                 </li>
-                </ul>
-            ))} */}
+                
+            ))}
+                </ul> */}
             {error && <p> Sorry</p>} 
     
       </>

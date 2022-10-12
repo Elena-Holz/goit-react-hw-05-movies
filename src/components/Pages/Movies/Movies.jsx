@@ -8,7 +8,7 @@ import { useSearchParams} from "react-router-dom";
 
 export default function Movies() {
     const [movies, setMovies] = useState([]);
-    const [search, setSearch] = useState('');
+    // const [search, setSearch] = useState('');
     const [page, setPage] = useState(1);
     const [error, setError] = useState(null);
 
@@ -24,9 +24,9 @@ useEffect(() => {
       
         try {
             const data = await getMovies(searchQuery, page);
-            // const newMovies = data.results;
-            // console.loge(data);
-            setMovies(prevmovies => [...prevmovies, ...data.results]);
+            const newMovies = data.results;
+            console.loge(data);
+            setMovies(prevmovies => [...prevmovies, ...newMovies]);
             console.loge(movies);
         
         } catch (error) {
