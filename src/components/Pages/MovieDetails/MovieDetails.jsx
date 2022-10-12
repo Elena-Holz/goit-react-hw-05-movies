@@ -19,6 +19,7 @@ export default function MovieDetails() {
             setError(null)
             const movieInfo = await getMoviesDetails(movieId);
             setState(movieInfo);
+            console.log(state);
             const arr = movieInfo.genres;
             const genres = [];
             for (const genre of arr) {

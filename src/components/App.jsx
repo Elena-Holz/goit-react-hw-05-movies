@@ -4,7 +4,7 @@ import Movies from "./Pages/Movies/Movies.jsx";
 import MovieDetails from "./Pages/MovieDetails/MovieDetails.jsx";
 import Cast from "./Pages/MovieDetails/MovieDetailsCast/Cast.jsx";
 import Reviews from "components/Pages/MovieDetails/MovieDetailsReviews/Reviews.jsx";
-import NavMenu from "./NavMenu/NavMenu.jsx";
+// import NavMenu from "./NavMenu/NavMenu.jsx";
 import SharedLayout from "./SharedLayout/SharedLayout.jsx";
 
 
