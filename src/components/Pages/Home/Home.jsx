@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getTrendingMovies } from 'components/services/api';
 import GalleryMovies from "components/Gallery/GalleryMovies/GalleryMovies";
 import css from "components/Pages/Home/Home.module.css";
+import Button from 'components/Button/Button.jsx';
 
 export default function Home() {
     const [page, setPage] = useState(1);
@@ -25,11 +26,16 @@ useEffect(() => {
      fetchTrendingMovies();
     
 }, [page]);
+    
+    const loadMore = () => {
+    setPage((prevPage) => prevPage + 1);
+  }
       
   return (
       <>
           <h2 className={css.homeTitle}>Trending movies</h2>
-          <GalleryMovies movies={movies}/>
+          <GalleryMovies movies={movies} />
+         <Button loadMore={loadMore} text='Load more' />
             {error && <p> Sorry</p>}
     </>
   )
