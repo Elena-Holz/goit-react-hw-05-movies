@@ -1,3 +1,7 @@
 .moviesTitle {
     font-size: 25px;
 }
+
+.listGallery {
+    list-style: none;
+}
