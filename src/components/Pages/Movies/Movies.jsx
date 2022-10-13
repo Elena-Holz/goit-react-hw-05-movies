@@ -1,54 +1,58 @@
 import Searchbar from 'components/SearchBar/SearchBar'
-// import css from 'components/Pages/Movies/Movies.module.css'
 import GalleryMovies from 'components/Gallery/GalleryMovies/GalleryMovies';
 import { useState, useEffect } from 'react';
-import { getMovies } from 'components/services/api';
+// import { getMovies } from 'components/services/api';
 import { useSearchParams} from "react-router-dom";
-// import { useMemo } from 'react';
+import axios from "axios";
+import PropTypes from 'prop-types';
 
 export default function Movies() {
     const [movies, setMovies] = useState([]);
-    const [page, setPage] = useState(1);
-    const [error, setError] = useState(null);
 
  const [searchParams, setSearchParams] = useSearchParams();
     const searchQuery = searchParams.get("searchQuery");
     console.log(searchQuery);
+    const request = searchParams.get('searchQuery') ?? '';
 
-
-useEffect(() => {
+  useEffect(() => {
+    if (request === '') {
+      return;
+    }
     const fetchMovies = async () => {
-      
-        try {
-            const {data} = await getMovies(searchQuery, page);
-            const newMovies = data.results;
-            console.loge(data);
-            setMovies(prevmovies => [...prevmovies, ...newMovies]);
-        
-        } catch (error) {
-            setError(error);
-        }
-    }
-    if (searchQuery) {
-        fetchMovies();
-    }
-    
-}, [searchQuery, page]);
+      try {
+        const response = await axios.get(
+          `  https://api.themoviedb.org/3/search/movie?api_key=d7ec2f16e9f47b0d4f9bd29e024a97c3&page=1&query=${request}`
+        );
+          setMovies(response.data.results);
+          console.log(response);
+     
+      } catch (error) {
+            console.log(error);
+
+      }
+    };
+
+    fetchMovies();
+  }, [request]);
       
     
     const onSearch = (search) => {
     setSearchParams({searchQuery: search});
     console.log('searchName', search);
     setMovies([]);
-    setPage(1);
   }
 
     return (
     <>
             <Searchbar onChange={onSearch}/>
-            {error && <p>Будь ласка спробуйте ще раз...</p>}
              <GalleryMovies movies={movies}/>
     </>
     )
 }
 
+Movies.propTypes = {
+    movies: PropTypes.array,
+    searchQuery: PropTypes.string,
+    request: PropTypes.string,
+    onSearch: PropTypes.func,
+}

@@ -5,15 +5,12 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { getMoviesCast} from 'components/services/api';
 import css from "components/Pages/MovieDetails/MovieDetails.module.css"
-
-
-
+import PropTypes from 'prop-types';
 
 export default function Cast() {
     const [error, setError] = useState(null);
      const [state, setState] = useState([]);
     const { movieId } = useParams();
-    console.log(movieId);
 
     useEffect(() => {
     const fetchMoviesCast = async () => {
@@ -32,42 +29,12 @@ export default function Cast() {
         fetchMoviesCast();
     }, [movieId]);
 
-//     const elements = state.map(({ name, profile_path, id }) => {
-            
-//         return (
-                
-//             <li key={id}>
-//                 <p>{name}</p>
-//                 <div>
-//                     <img src={`https://image.tmdb.org/t/p/w200${profile_path}`} alt={name} />
-//                 </div>
-//             </li>
-                
-//         )
-//     });
-        
-//     return (
-//     <>
-        
-//             {state.length > 0 && (
-//                 <ul className={css.listReviews}>{elements}</ul>
-//             )}       
-//         {error && <p> Sorry</p>}
-//     </>
-    
-//   );
-// };
-
- 
-
-
     return (
       <>
-            <h2 >Cast</h2>
             {state.length > 0 && (<ul>
                 {state.map(({ name, profile_path, id }) => (
                     <li className={css.listReviews} key={id}>
-                        <p>{name}</p>
+                        <p className={css.title}>{name}</p>
                         <div>
                             {profile_path ? (
                                 <img src={`https://image.tmdb.org/t/p/w200${profile_path}`} alt='' />
@@ -87,3 +54,11 @@ export default function Cast() {
   );
 };
 
+Cast.propTypes = {
+    error: PropTypes.bool,
+    movieId: PropTypes.number,
+    state: PropTypes.array,
+    id: PropTypes.number,
+    name: PropTypes.string,
+    profile_path: PropTypes.string,
+}

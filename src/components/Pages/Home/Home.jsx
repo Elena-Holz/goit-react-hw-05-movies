@@ -3,6 +3,7 @@ import { getTrendingMovies } from 'components/services/api';
 import GalleryMovies from "components/Gallery/GalleryMovies/GalleryMovies";
 import css from "components/Pages/Home/Home.module.css";
 import Button from 'components/Button/Button.jsx';
+import PropTypes from 'prop-types';
 
 export default function Home() {
     const [page, setPage] = useState(1);
@@ -15,7 +16,6 @@ useEffect(() => {
         try {
             const data = await getTrendingMovies(page);
             const trendMovies = data.results;
-            console.log('trendMovies', trendMovies);
             setMovies((movies) => [...movies, ...trendMovies]);
         
         } catch (error) {
@@ -39,4 +39,12 @@ useEffect(() => {
             {error && <p> Sorry</p>}
     </>
   )
+};
+
+Home.propTypes = {
+    error: PropTypes.bool.isRequired,
+    page: PropTypes.number.isRequired,
+    movies: PropTypes.array.isRequired,
+    loadMore: PropTypes.func.isRequired,
+  
 }

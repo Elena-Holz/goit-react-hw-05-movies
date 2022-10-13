@@ -5,15 +5,14 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { getMoviesReviews} from 'components/services/api';
 import css from "components/Pages/MovieDetails/MovieDetails.module.css"
+import PropTypes from 'prop-types';
 
 
 
-
-export default function Cast() {
+export default function Reviews() {
     const [error, setError] = useState(null);
     const [state, setState] = useState([]);
     const { movieId } = useParams();
-    console.log(movieId);
 
     useEffect(() => {
         const fetchMoviesReviews = async () => {
@@ -23,7 +22,6 @@ export default function Cast() {
                 setError(null)
                 const data = await getMoviesReviews(movieId);
                 setState(data.results);
-                console.loge(data);
                   
             } catch (error) {
                 setError(error);
@@ -36,7 +34,7 @@ export default function Cast() {
             
         return (
             <li key={id}>
-                <h3 className={css.author}>Author:{author}</h3>
+                <h3 className={css.title}>Author:{author}</h3>
                 <p className={css.content}>{content}</p>
             </li>
         )
@@ -44,7 +42,7 @@ export default function Cast() {
  
     return (
     <>
-        {/* <h2 >Reviews</h2> */}
+
             {state.length > 0 ? (
                 <ul className={css.listReviews}>{elements}</ul>
             ) : (
@@ -55,3 +53,12 @@ export default function Cast() {
     
   );
 };
+
+Reviews.propTypes = {
+    error: PropTypes.bool,
+    movieId: PropTypes.number,
+    state: PropTypes.array,
+    id: PropTypes.number,
+    author: PropTypes.string,
+    content: PropTypes.string,
+}
