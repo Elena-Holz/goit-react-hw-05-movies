@@ -8,11 +8,11 @@ import { lazy } from "react";
 // import NavMenu from "./NavMenu/NavMenu.jsx";
 // import SharedLayout from "./SharedLayout/SharedLayout.jsx";
 
-const Home = lazy(() => import("./Pages/Home/Home.jsx"));
-const Movies = lazy(() => import("./Pages/Movies/Movies.jsx"));
-const MovieDetails = lazy(() => import("./Pages/MovieDetails/MovieDetails.jsx"));
-const Cast = lazy(() => import("./Pages/MovieDetails/MovieDetailsCast/Cast.jsx"));
-const Reviews = lazy(() => import("./Pages/MovieDetails/MovieDetailsReviews/Reviews.jsx"));
+const Home = lazy(() => import("Pages/Home/Home.jsx"));
+const Movies = lazy(() => import("Pages/Movies/Movies.jsx"));
+const MovieDetails = lazy(() => import("Pages/MovieDetails/MovieDetails.jsx"));
+const Cast = lazy(() => import("Pages/MovieDetails/MovieDetailsCast/Cast.jsx"));
+const Reviews = lazy(() => import("Pages/MovieDetails/MovieDetailsReviews/Reviews.jsx"));
 const SharedLayout = lazy(() => import("./SharedLayout/SharedLayout.jsx"));
 
 

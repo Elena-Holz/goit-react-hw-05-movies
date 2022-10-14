@@ -1,7 +1,7 @@
 import { useParams, useNavigate, Outlet, NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { getMoviesDetails } from 'components/services/api';
-import css from "components/Pages/MovieDetails/MovieDetails.module.css"
+import css from "Pages/MovieDetails/MovieDetails.module.css"
 import PropTypes from 'prop-types';
 
 export default function MovieDetails() {

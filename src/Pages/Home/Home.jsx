@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getTrendingMovies } from 'components/services/api';
 import GalleryMovies from "components/Gallery/GalleryMovies/GalleryMovies";
-import css from "components/Pages/Home/Home.module.css";
+import css from "Pages/Home/Home.module.css";
 import Button from 'components/Button/Button.jsx';
 import PropTypes from 'prop-types';
 

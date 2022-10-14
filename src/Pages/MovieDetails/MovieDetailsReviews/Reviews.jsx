@@ -4,7 +4,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { getMoviesReviews} from 'components/services/api';
-import css from "components/Pages/MovieDetails/MovieDetails.module.css"
+import css from "Pages/MovieDetails/MovieDetails.module.css"
 import PropTypes from 'prop-types';
 
 
